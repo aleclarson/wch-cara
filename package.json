@@ -1,0 +1,17 @@
+{
+  "name": "wch-cara",
+  "version": "0.0.1",
+  "main": "js/index",
+  "dependencies": {
+    "cara-cdn": "^0.0.1",
+    "huey": "aleclarson/huey#1.1.1"
+  },
+  "devDependencies": {
+    "coffeescript": "^2.2.3",
+    "wch-coffee": "^0.0.1"
+  },
+  "scripts": {
+    "build": "coffee-build src -o js",
+    "prepublishOnly": "prepv -i"
+  }
+}
