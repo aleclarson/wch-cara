@@ -1,11 +1,15 @@
 cdn = require 'cara-cdn'
 wch = require 'wch'
 
-log = (msg) ->
-  wch.log.coal '[cara]', msg
+plug = wch.plugin 'cara'
 
-exports.run = -> cdn.run {log}
-exports.end = cdn.end
+plug.on 'run', -> cdn.run {@log}
+plug.on 'stop', cdn.stop
 
-exports.add = cdn.add
-exports.remove = cdn.remove
+plug.on 'add', (root) ->
+  cdn.add root.path
+
+plug.on 'remove', (root) ->
+  cdn.remove root.path
+
+module.exports = plug
