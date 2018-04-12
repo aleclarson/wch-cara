@@ -3,7 +3,9 @@ wch = require 'wch'
 
 plug = wch.plugin 'cara'
 
-plug.on 'run', -> cdn.run {@log}
+plug.on 'run', ->
+  cdn.run log: plug.log
+
 plug.on 'stop', cdn.stop
 
 plug.on 'add', (root) ->
